@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChatServer
 {
-    class Client
+    public class Client
     {
         public string Username { get; set; }
         public Guid UID { get; set; }

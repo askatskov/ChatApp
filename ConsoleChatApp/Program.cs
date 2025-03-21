@@ -1,7 +1,6 @@
 ﻿using ConsoleChatApp.Net;
 
 namespace ConsoleChatApp
-
 {
     public class Program
     {
@@ -13,9 +12,25 @@ namespace ConsoleChatApp
             string username = Console.ReadLine();
             server1.ConnectToServer(username);
 
+            server1.connectedEvent += () =>
+            {
+                string newUser = server1.PacketReader.ReadMessage();
+                Console.WriteLine($"{newUser} has joined the chat.");
+            };
+
+            server1.msgReceivedEvent += () =>
+            {
+                string message = server1.PacketReader.ReadMessage();
+                Console.WriteLine($"{message}");
+            };
+
+            server1.userDisconnectEvent += () =>
+            {
+                string disconnectedUser = server1.PacketReader.ReadMessage();
+            };
+
             while (true)
             {
-                Console.Write("Enter Message: ");
                 string msg = Console.ReadLine();
 
                 if (msg.ToLower() == "exit")
@@ -23,8 +38,6 @@ namespace ConsoleChatApp
 
                 server1.SendMessageToServer(msg);
             }
-
-            Console.WriteLine("Disconnected from server.");
         }
     }
 }
