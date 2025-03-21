@@ -26,7 +26,7 @@ namespace ConsoleChatApp.Net
         {
             if (!_client.Connected)
             {
-                _client.Connect("6.tcp.eu.ngrok.io", 12076);
+                _client.Connect("127.0.0.1", 7891);
                 PacketReader = new PacketReader(_client.GetStream());
 
                 if (!string.IsNullOrEmpty(username))
@@ -60,9 +60,9 @@ namespace ConsoleChatApp.Net
                             userDisconnectEvent?.Invoke();
                             break;
 
-                        default:
-                            Console.WriteLine("ah yes..");
-                            break;
+                        //default:
+                            //Console.WriteLine("ah yes..");
+                            //break;
                     }
                 }
             });
