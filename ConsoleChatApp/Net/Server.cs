@@ -1,4 +1,4 @@
-﻿using ChatApp.Net.IO;
+﻿using ConsoleChatApp.Net.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatApp.Net
+namespace ConsoleChatApp.Net
 {
     class Server
     {
@@ -26,7 +26,7 @@ namespace ChatApp.Net
         {
             if (!_client.Connected)
             {
-                _client.Connect("127.0.0.1", 7891);
+                _client.Connect("6.tcp.eu.ngrok.io", 12076);
                 PacketReader = new PacketReader(_client.GetStream());
 
                 if (!string.IsNullOrEmpty(username))

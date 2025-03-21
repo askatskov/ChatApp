@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatApp.Net.IO
+namespace ConsoleChatApp.Net.IO
 {
     class PacketReader : BinaryReader
     {
